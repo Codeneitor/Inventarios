@@ -1,0 +1,12 @@
+header{
+	width: 100%;
+	z-index: 999;
+	background: url(../img/home_r22_c19.gif);
+}
+header>div>hgroup>img{
+	float: left;
+	width: 20%;
+}
+header>div>hgroup>h1 {
+	
+}
