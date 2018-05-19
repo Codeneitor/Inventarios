@@ -1,0 +1,9 @@
+.navBar{
+	background-color: #515151;
+	width: 100%;
+}
+li{
+	color: #000000;
+	display: inline;
+	margin-left: 10px;
+}
