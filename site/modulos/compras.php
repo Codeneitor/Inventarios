@@ -1,10 +1,11 @@
 <script src="./js/compras.js"></script>
-		<div class="panel-modulo" id="panelModulo">
-			<table id="comprasLista" class="table-modulo" border="1">
+		<div class="panel-modulo-info" id="panelCompras">
+			<h2>Módulo Compras</h2>
+			<table id="comprasLista" class="tabla-modulo" border="1">
 			    <tr>
-			        <th width="60%" style="text-align: left;">Proveedor</th>
-			        <th width="10%">N°Factura</th>
-			        <th width="10%">Fecha</th>
+			        <th width="50%" style="text-align: left;">Proveedor</th>
+			        <th width="30%">N°Factura</th>
+			        <th width="20%">Fecha</th>
 			    </tr>
 			</table>
 		</div>

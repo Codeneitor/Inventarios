@@ -1,6 +1,28 @@
-div.panel-main{
+div.panel-modulo{
+	width: 90%;
 	display: inline-table;
 }
-div.panel-modulo{
+div.panel-main{
+	width: 95%;
+	display: inline-table;
+}
+div.panel-menu{
+	display: table-cell;
+}
+div.panel-modulo-crud{
+	display: table-cell;
+}
+div.panel-modulo-info{
 	margin-bottom: 5px;
+}
+
+div.tabla-crud{
+	background-color: #FFF;
+	margin:0 auto;
+	padding:5px;
+	/*background-color: #fdd804;*/
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 15px;
 }

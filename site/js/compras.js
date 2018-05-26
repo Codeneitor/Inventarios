@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var url="http://127.0.0.1/inventarios/database/read.php";
+	var url="http://127.0.0.1/inventarios/server/crud/read/compras.php";
 	$.getJSON(url,function(result){
 		console.log(result);
 		$.each(result, function(i, field){

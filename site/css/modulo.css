@@ -1,4 +1,4 @@
-table.table-modulo{
+table.tabla-modulo{
 	background-color: #FFF;
 	margin:0 auto;
 	padding:5px;
@@ -8,11 +8,11 @@ table.table-modulo{
 	display: block;
 	border-radius: 15px;
 }
-.table-modulo tr th{
+.tabla-modulo tr th{
 	background-color: #000;
 	color: #FFF;
 }
-.table-modulo tr td{
+.tabla-modulo tr td{
 	background-color: #fff;
 	color: #000;
 }

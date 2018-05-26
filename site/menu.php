@@ -1,35 +1,35 @@
 <?php
 ?>
-<div class="panel-menu">
+<div class="panel-menu" id="panelMenu">
             <table class="tabla-menu degrade">
                 <tr>
                     <td>
-                        <div id="proveedores">Proveedores</div>
+                        <div id="btnProveedores">Proveedores</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="compras">Compras</div>
+                        <div id="btnCompras">Compras</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="inventarios">Inventario</div>
+                        <div id="btnClientes">Clientes</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="clientes">Clientes</div>
+                        <div id="btnVentas">Ventas</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="ventas">Ventas</div>
+                        <div id="btnInventarios">Inventario</div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="admin">Administrados</div>
+                        <div id="btnAdministrador">Administrador</div>
                     </td>
                 </tr>
             </table>

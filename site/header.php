@@ -3,7 +3,7 @@
 <header>
 		<div>
 			<hgroup>
-				<img src="img/banner.png" alt="">
+				<img src="img/imagen.png" alt="Sistema De Inventarios">
 				<h1>Gestión de inventarios</h1>
 			</hgroup>
 		</div>

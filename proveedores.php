@@ -7,8 +7,8 @@
     <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
-    <link rel="stylesheet" type="text/css" href="../css/ionic.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ionic.css">
     <title>Agregar Proveedor</title>
 </head>
 <body>
@@ -43,7 +43,7 @@
             <input type="button" id="insert" class="button " value="Guardar"/>
         </div>
     </div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <script type="text/javascript">
     $(document).ready(function(){
         $("#insert").click(function(){
@@ -56,7 +56,7 @@
             if($.trim(proveedor).length>0 & $.trim(ciudad).length>0 & $.trim(direccion).length>0){
                 $.ajax({
                     type: "POST",
-                    url:"http://127.0.0.1/inventarios/database/saveProvider.php",
+                    url:"http://127.0.0.1/inventarios/server/crud/create/proveedores.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -64,10 +64,10 @@
                         $("#insert").val('Connecting...');
                     },
                     success: function(data){
-                        if(data=="success"){
+                        if(data!=""){
                             alert("Guardado");
                             $("#insert").val('Guardar');
-                            location.href='../index.php';
+                            location.href='http://127.0.0.1/inventarios/site/index.php';
                         }else if(data=="error"){
                             alert("error");
                         }
