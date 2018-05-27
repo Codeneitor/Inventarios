@@ -88,10 +88,7 @@ if(!$conexion){
 							proveedor_id INT(11) NOT NULL,
 							INDEX prov_ind (proveedor_id),
 							FOREIGN KEY(proveedor_id) REFERENCES proveedores(proveedor_id) ON DELETE CASCADE,
-							existencias INT(11) NOT NULL,
-							factura_compra_id INT(11) NOT NULL,
-							INDEX invo_ind (factura_compra_id),
-							FOREIGN KEY(factura_compra_id) REFERENCES compras(factura_compra_id) ON DELETE CASCADE
+							existencias INT(11) NOT NULL
 							) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;";
 							if(mysqli_query($conexion,$sqlInventario))
 								echo "La tabla inventario ha sido creada.<h2>Instalación Finalizada</h2>", include("index.php");

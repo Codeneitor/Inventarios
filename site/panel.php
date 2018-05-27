@@ -1,4 +1,4 @@
-<div class="" id="">
+<div class="panel-modulo" id="">
 	<?php include("modulos/proveedores.php"); echo"\n";?>
 	<?php include("modulos/compras.php"); echo"\n";?>
 	<?php include("modulos/clientes.php"); echo"\n";?>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Actualizar</title>
+
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/geturi.js"></script>
+    <script type="text/javascript" src="js/calc.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var id = decodeURI(getUrlVars()["id"]);
+            var curso = decodeURI(getUrlVars()["curso"]);
+            var docente = decodeURI(getUrlVars()["docente"]);
+            var estudiante = decodeURI(getUrlVars()["estudiante"]);
+            var nota1 = decodeURI(getUrlVars()["nota1"]);
+            var nota2 = decodeURI(getUrlVars()["nota2"]);
+            var nota3 = decodeURI(getUrlVars()["nota3"]);
+            var promedio = decodeURI(getUrlVars()["promedio"]);
+            var observaciones = decodeURI(getUrlVars()["observaciones"]);
+            $("#id").val(id);
+            $("#curso").val(curso);
+            $("#docente").val(docente);
+            $("#estudiante").val(estudiante);
+            $("#nota1").val(nota1);
+            $("#nota2").val(nota2);
+            $("#nota3").val(nota3);
+            $("#promedio").val(promedio);
+            $("#observaciones").val(observaciones);
+            //Función que actualiza los datos
+            $("#update").click(function(){
+                var id=$("#id").val();
+                var curso=$("#curso").val();
+                var docente=$("#docente").val();
+                var estudiante=$("#estudiante").val();
+                var nota1=$("#nota1").val();
+                var nota2=$("#nota2").val();
+                var nota3=$("#nota3").val();
+                var promedio=$("#promedio").val();
+                var observaciones=$("#observaciones").val();
+                var dataString="id="+id+"&curso="+curso+"&docente="+docente+"&estudiante="+estudiante+"&nota1="+nota1+"&nota2="+nota2+"&nota3="+nota3+"&promedio="+promedio+"&observaciones="+observaciones+"&update=";
+                $.ajax({
+                    type: "POST",
+                    url:"http://127.0.0.1/phonegap/notasdb/update.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function(){
+                        $("#update").val('Connecting...');
+                    },
+                    success: function(data){
+                        if(data=="success"){
+                            alert("Actualizado");
+                            $("#update").val("Actualizar");
+                            location.href='readcursos.html';
+                        }
+                        else if(data=="error"){
+                            alert("error");
+                        }
+                    }
+                });
+
+            });
+            $("#delete").click(function(){
+                var id=$("#id").val();
+                var dataString="id="+id+"&delete=";
+                $.ajax({
+                    type: "GET",
+                    url:"http://127.0.0.1/phonegap/notasdb/delete.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function(){
+                        $("#delete").val('Connecting...');
+                    },
+                    success: function(data){
+                        if(data=="success"){
+                            alert("Deleted");
+                            $("#delete").val("Delete");
+                            location.href='readcursos.html';
+
+                        }else if(data=="error"){
+                            alert("error");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="index.html" class="button button-clear">Inicio</a>
+        <h1 class="title">Actualizar Datos</h1>
+        <a class="button button-clear" href="readcursos.html">Ver Cursos</a>
+    </div><br/><br/>
+    <div class="list">
+        <input type="hidden" id="id" value=""/>
+        <div class="item">
+            <label>Curso</label>
+            <input type="text" id="curso" value=""/>
+        </div>
+        <div class="item">
+            <label>Docente</label>
+            <input type="text" id="docente" value=""/>
+        </div>
+        <div class="item">
+            <label>Estudiante</label>
+            <input type="text" id="estudiante" value=""/>
+        </div>
+        <table class="item">
+        	<tr>
+        		<td>
+        			<div class="item">
+			            <label>Nota 1</label>
+			            <input type="text" id="nota1" value=""/>
+			        </div>
+        		</td>
+        		<td>
+        			<div class="item">
+			            <label>Nota 2</label>
+			            <input type="text" id="nota2" value=""/>
+			        </div>
+        		</td>
+        		<td>
+        			<div class="item">
+			            <label>Nota 3</label>
+			            <input type="text" id="nota3" value=""/>
+			        </div>
+        		</td>
+        		<td>
+			        <div class="item">
+			            <label>Promedio</label>
+			            <input type="text" id="promedio" value=""/>
+			        </div>
+        		</td>
+        	</tr>
+        </table>
+        <div class="item">
+            <label>Observaciones</label>
+            <input type="text" id="observaciones" value=""/>
+        </div>
+        <div class="item">
+            <input type="button" id="promediar" class="button" value="Calcular"/>
+            <input type="button" id="update" class="button" value="Update"/>
+            <input type="button" id="borrar" class="button" value="Delete"/>
+        </div>
+    </div>
+    
+</body>
+</html>

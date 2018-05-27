@@ -1,4 +1,4 @@
-div.panel-modulo{
+div.panel-general{
 	width: 90%;
 	display: inline-table;
 }
@@ -12,7 +12,12 @@ div.panel-menu{
 div.panel-modulo-crud{
 	display: table-cell;
 }
+div.panel-modulo{
+	display: table-cell;
+	margin-bottom: 5px;
+}
 div.panel-modulo-info{
+	display: table-cell;
 	margin-bottom: 5px;
 }
 

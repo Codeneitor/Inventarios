@@ -4,7 +4,7 @@
             <table class="tabla-crud degrade">
                 <tr>
                     <td>
-                        <div>CRUD</div>
+                        <div>Opciones Compras</div>
                     </td>
                 </tr>
                 <tr>
@@ -13,45 +13,42 @@
                             <input type="hidden" id="id" value=""/>
                             <div class="item">
                                 <label>Proveedor</label>
-                                <input type="text" id="proveedor" value=""/>
+                                <input type="text" id="proveedorCompra" value=""/>
                             </div>
                             <div class="item">
-                                <label>Ciudad</label>
-                                <input type="text" id="ciudad" value=""/>
+                                <label>N°Factura</label>
+                                <input type="text" id="numFacturaCompra" value=""/>
                             </div>
                             <div class="item">
-                                <label>Dirección</label>
-                                <input type="text" id="direccion" value=""/>
+                                <label>Fecha</label>
+                                <input type="text" id="fechaCompra" value=""/>
                             </div>
                             <div class="item">
                                 <input type="button" id="borrar" class="button" value="Borrar"/>
-                                <input type="button" id="insert" class="button " value="Guardar"/>
+                                <input type="button" id="insertCompra" class="button " value="Guardar"/>
                             </div>
                         </div>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                         <script type="text/javascript">
                         $(document).ready(function(){
-                            $("#insert").click(function(){
-                                var proveedor=$("#proveedor").val();
-                                var ciudad=$("#ciudad").val();
-                                var direccion=$("#direccion").val();
-                                var telefono=$("#telefono").val();
-                                var nit=$("#nit").val();
-                                var dataString="proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"&insert=";
-                                if($.trim(proveedor).length>0 & $.trim(ciudad).length>0 & $.trim(direccion).length>0){
+                            $("#insertCompra").click(function(){
+                                var proveedorCompra=$("#proveedorCompra").val();
+                                var numFacturaCompra=$("#numFacturaCompra").val();
+                                var fechaCompra=$("#fechaCompra").val();
+                                var dataString="proveedorCompra="+proveedorCompra+"&numFacturaCompra="+numFacturaCompra+"&fechaCompra="+fechaCompra+"&insertCompra=";
+                                if($.trim(proveedorCompra).length>0 & $.trim(numFacturaCompra).length>0 & $.trim(fechaCompra).length>0){
                                     $.ajax({
                                         type: "POST",
-                                        url:"http://127.0.0.1/inventarios/server/crud/create/proveedores.php",
+                                        url:"http://127.0.0.1/inventarios/server/crud/create/compras.php",
                                         data: dataString,
                                         crossDomain: true,
                                         cache: false,
                                         beforeSend: function(){
-                                            $("#insert").val('Connecting...');
+                                            $("#insertCompra").val('Connecting...');
                                         },
                                         success: function(data){
                                             if(data!=""){
                                                 alert("Guardado");
-                                                $("#insert").val('Guardar');
+                                                $("#insertCompra").val('Guardar');
                                                 location.href='http://127.0.0.1/inventarios/site/index.php';
                                             }else if(data=="error"){
                                                 alert("error");

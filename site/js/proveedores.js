@@ -3,13 +3,13 @@ $(document).ready(function(){
 	$.getJSON(url,function(result){
 		console.log(result);
 		$.each(result, function(i, field){
-			var id=field.id;
+			var proveedor_id=field.proveedor_id;
 			var proveedor=field.proveedor;
 			var ciudad=field.ciudad;
 			var direccion=field.direccion;
 			var telefono=field.telefono;
 			var nit=field.nit;
-			$("#proveedoresLista").append("<tr><td>"+proveedor+"</td><td>"+ ciudad + "</td><td>"+ direccion +"</td><td>"+ telefono +"</td><td>"+ nit +"</td><td><a href='form.html?id="+id+"&proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"'>Actualizar</a></td></tr>");
+			$("#proveedoresLista").append("<tr><td>"+proveedor+"</td><td>"+ciudad+"</td><td>"+ direccion +"</td><td>"+ telefono +"</td><td>"+ nit +"</td><td><a href='modulos/crud/update/proveedor.html?proveedor_id="+proveedor_id+"&proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"'>Actualizar</a></td></tr>");
 		});
 	});
 });

@@ -6,7 +6,7 @@
 	<?php  include("header.php"); echo"\n";?>
 	<?php include("navbar.php"); echo"\n";?>
 	<h1>Inventarios</h1>
-	<div class="panel-modulo">
+	<div class="panel-general">
 		<?php include("menu.php"); echo"\n";?>
 		<div class="panel-main" id="panelModulo">
 			<?php include("crud.php"); echo"\n";?>

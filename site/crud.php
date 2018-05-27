@@ -1,5 +1,5 @@
-<?php include("crud/proveedores.php"); echo"\n";?>
-<?php include("crud/compras.php"); echo"\n";?>
-<?php include("crud/clientes.php"); echo"\n";?>
-<?php include("crud/ventas.php"); echo"\n";?>
-<?php include("crud/inventario.php"); echo"\n";?>
+<?php include("modulos/crud/create/proveedores.php"); echo"\n";?>
+<?php include("modulos/crud/create/compras.php"); echo"\n";?>
+<?php include("modulos/crud/create/clientes.php"); echo"\n";?>
+<?php include("modulos/crud/create/ventas.php"); echo"\n";?>
+<?php include("modulos/crud/create/inventario.php"); echo"\n";?>

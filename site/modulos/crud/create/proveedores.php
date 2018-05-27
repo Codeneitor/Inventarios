@@ -4,7 +4,7 @@
             <table class="tabla-crud degrade">
                 <tr>
                     <td>
-                        <div >CRUD</div>
+                        <div>Opciones Proveedores</div>
                     </td>
                 </tr>
                 <tr>
@@ -33,11 +33,9 @@
                                 <input type="text" id="nit" value=""/>
                             </div>
                             <div class="item">
-                                <input type="button" id="borrar" class="button" value="Borrar"/>
                                 <input type="button" id="insert" class="button " value="Guardar"/>
                             </div>
                         </div>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                         <script type="text/javascript">
                         $(document).ready(function(){
                             $("#insert").click(function(){

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <title>Actualizar</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/ionic.css">
+    <script type="text/javascript" src="../../../js/jQuery3.2.1.js"></script>
+    <script type="text/javascript" src="../../../js/geturi.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var proveedor_id = decodeURI(getUrlVars()["proveedor_id"]);
+            var proveedor = decodeURI(getUrlVars()["proveedor"]);
+            var ciudad = decodeURI(getUrlVars()["ciudad"]);
+            var direccion = decodeURI(getUrlVars()["direccion"]);
+            var telefono = decodeURI(getUrlVars()["telefono"]);
+            var nit = decodeURI(getUrlVars()["nit"]);
+            $("#proveedor_id").val(proveedor_id);
+            $("#proveedor").val(proveedor);
+            $("#ciudad").val(ciudad);
+            $("#direccion").val(direccion);
+            $("#telefono").val(telefono);
+            $("#nit").val(nit);
+            //Función que actualiza los datos
+            $("#update").click(function(){
+                var proveedor_id=$("#proveedor_id").val();
+                var proveedor=$("#proveedor").val();
+                var ciudad=$("#ciudad").val();
+                var direccion=$("#direccion").val();
+                var telefono=$("#telefono").val();
+                var nit=$("#nit").val();
+                var dataString="proveedor_id="+proveedor_id+"&proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"&update=";
+                $.ajax({
+                    type: "POST",
+                    url:"http://127.0.0.1/inventarios/server/crud/update/proveedores.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function(){
+                        $("#update").val('Connecting...');
+                    },
+                    success: function(data){
+                        if(data=="success"){
+                            alert("Actualizado");
+                            $("#update").val("Actualizar");
+                            location.href='../../../index.php';
+                        }
+                        else if(data=="error"){
+                            alert("error");
+                        }
+                    }
+                });
+
+            });
+            $("#borrar").click(function(){
+                var proveedor_id=$("#proveedor_id").val();
+                var dataString="proveedor_id="+proveedor_id+"&delete=";
+                $.ajax({
+                    type: "GET",
+                    url:"http://127.0.0.1/inventarios/server/crud/delete/proveedores.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function(){
+                        $("#borrar").val('Connecting...');
+                    },
+                    success: function(data){
+                        if(data=="success"){
+                            alert("Borrado");
+                            $("#borrar").val("Borrar");
+                            location.href='http://localhost/inventarios/site/index.php';
+
+                        }else if(data=="error"){
+                            alert("error");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="index.php" class="button button-clear">Inicio</a>
+        <h1 class="title">Actualizar Datos</h1>
+    </div><br/><br/>
+    <div class="list">
+        <input type="hidden" id="proveedor_id" value=""/>
+        <div class="item">
+            <label>Proveedor</label>
+            <input type="text" id="proveedor" value=""/>
+        </div>
+        <div class="item">
+            <label>Cuidad</label>
+            <input type="text" id="ciudad" value=""/>
+        </div>
+        <div class="item">
+            <label>Direccion</label>
+            <input type="text" id="direccion" value=""/>
+        </div>
+		<div class="item">
+            <label>Teléfono</label>
+            <input type="text" id="telefono" value=""/>
+        </div>
+	
+		<div class="item">
+            <label>NIT</label>
+            <input type="text" id="nit" value=""/>
+        </div>
+        <div class="item">
+            <input type="button" id="update" class="button" value="Actualizar"/>
+            <input type="button" id="borrar" class="button" value="Eliminar"/>
+        </div>
+    </div>
+    
+</body>
+</html>
