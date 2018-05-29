@@ -11,82 +11,27 @@
     <link rel="stylesheet" type="text/css" href="../../../css/ionic.css">
     <script type="text/javascript" src="../../../js/jQuery3.2.1.js"></script>
     <script type="text/javascript" src="../../../js/geturi.js"></script>
+    <script type="text/javascript" src="../js/proveedores.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            var proveedor_id = decodeURI(getUrlVars()["proveedor_id"]);
-            var proveedor = decodeURI(getUrlVars()["proveedor"]);
-            var ciudad = decodeURI(getUrlVars()["ciudad"]);
-            var direccion = decodeURI(getUrlVars()["direccion"]);
-            var telefono = decodeURI(getUrlVars()["telefono"]);
-            var nit = decodeURI(getUrlVars()["nit"]);
-            $("#proveedor_id").val(proveedor_id);
-            $("#proveedor").val(proveedor);
-            $("#ciudad").val(ciudad);
-            $("#direccion").val(direccion);
-            $("#telefono").val(telefono);
-            $("#nit").val(nit);
-            //Función que actualiza los datos
-            $("#update").click(function(){
-                var proveedor_id=$("#proveedor_id").val();
-                var proveedor=$("#proveedor").val();
-                var ciudad=$("#ciudad").val();
-                var direccion=$("#direccion").val();
-                var telefono=$("#telefono").val();
-                var nit=$("#nit").val();
-                var dataString="proveedor_id="+proveedor_id+"&proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"&update=";
-                $.ajax({
-                    type: "POST",
-                    url:"http://127.0.0.1/inventarios/server/crud/update/proveedores.php",
-                    data: dataString,
-                    crossDomain: true,
-                    cache: false,
-                    beforeSend: function(){
-                        $("#update").val('Connecting...');
-                    },
-                    success: function(data){
-                        if(data=="success"){
-                            alert("Actualizado");
-                            $("#update").val("Actualizar");
-                            location.href='../../../index.php';
-                        }
-                        else if(data=="error"){
-                            alert("error");
-                        }
-                    }
-                });
-
-            });
-            $("#borrar").click(function(){
-                var proveedor_id=$("#proveedor_id").val();
-                var dataString="proveedor_id="+proveedor_id+"&delete=";
-                $.ajax({
-                    type: "GET",
-                    url:"http://127.0.0.1/inventarios/server/crud/delete/proveedores.php",
-                    data: dataString,
-                    crossDomain: true,
-                    cache: false,
-                    beforeSend: function(){
-                        $("#borrar").val('Connecting...');
-                    },
-                    success: function(data){
-                        if(data=="success"){
-                            alert("Borrado");
-                            $("#borrar").val("Borrar");
-                            location.href='http://localhost/inventarios/site/index.php';
-
-                        }else if(data=="error"){
-                            alert("error");
-                        }
-                    }
-                });
-            });
-        });
+        function cargarDatos(){
+        var proveedor_id = decodeURI(getUrlVars()["proveedor_id"]);
+        var proveedor = decodeURI(getUrlVars()["proveedor"]);
+        var ciudad = decodeURI(getUrlVars()["ciudad"]);
+        var direccion = decodeURI(getUrlVars()["direccion"]);
+        var telefono = decodeURI(getUrlVars()["telefono"]);
+        var nit = decodeURI(getUrlVars()["nit"]);
+        $("#proveedor_id").val(proveedor_id);
+        $("#proveedor").val(proveedor);
+        $("#ciudad").val(ciudad);
+        $("#direccion").val(direccion);
+        $("#telefono").val(telefono);
+        $("#nit").val(nit);
+    }
     </script>
 </head>
-
-<body>
+<body onload="cargarDatos();">
     <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
-        <a href="index.php" class="button button-clear">Inicio</a>
+        <a href="../../../index.php" class="button button-clear">Inicio</a>
         <h1 class="title">Actualizar Datos</h1>
     </div><br/><br/>
     <div class="list">
@@ -117,6 +62,5 @@
             <input type="button" id="borrar" class="button" value="Eliminar"/>
         </div>
     </div>
-    
 </body>
 </html>

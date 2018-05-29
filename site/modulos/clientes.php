@@ -1,4 +1,4 @@
-		<script src="./js/clientes.js"></script>
+<script src="modulos/js/clientes.js"></script>
 		<div class="panel-modulo-info" id="panelClientes">
 			<h2>Módulo Clientes</h2>
 			<table id="clientesLista" class="tabla-modulo" border="1">

@@ -1,3 +1,4 @@
+<script src="modulos/js/ventas.js"></script>
 		<div class="panel-modulo-info" id="panelVentas">
 			<h2>Módulo Ventas</h2>
 			<table id="tablaModulo" class="tabla-modulo" border="1">

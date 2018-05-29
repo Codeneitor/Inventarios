@@ -1,8 +1,8 @@
-        <div id="proveedoresCRUD" class="panel-modulo-crud">
+        <div id="ventasCRUD" class="panel-modulo-crud">
             <table class="tabla-crud degrade">
                 <tr>
                     <td>
-                        <div>Agregar Proveedor</div>
+                        <div>Agregar Venta</div>
                     </td>
                 </tr>
                 <tr>
@@ -10,27 +10,23 @@
                         <div class="list">
                             <input type="hidden" id="id" value=""/>
                             <div class="item">
-                                <label>Proveedor</label>
-                                <input type="text" id="proveedor" value=""/>
+                                <label>Cliente</label>
+                                <input type="text" id="nombres" value=""/>
                             </div>
                             <div class="item">
-                                <label>Ciudad</label>
-                                <input type="text" id="ciudad" value=""/>
+                                <label>Producto</label>
+                                <input type="text" id="apellidos" value=""/>
                             </div>
                             <div class="item">
-                                <label>Dirección</label>
-                                <input type="text" id="direccion" value=""/>
+                                <label>Cantidad</label>
+                                <input type="text" id="documento" value=""/>
                             </div>
                             <div class="item">
-                                <label>Teléfono</label>
+                                <label>N°Factura</label>
                                 <input type="text" id="telefono" value=""/>
                             </div>
                             <div class="item">
-                                <label>Nit</label>
-                                <input type="text" id="nit" value=""/>
-                            </div>
-                            <div class="item">
-                                <input type="button" id="insertProveedor" class="button " value="Guardar"/>
+                                <input type="button" id="insertVenta" class="button " value="Guardar"/>
                             </div>
                         </div>
                     </td>

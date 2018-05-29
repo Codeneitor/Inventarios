@@ -13,11 +13,11 @@
 - [X] [Creación de los archivos que eliminan la DATA]()
 - [X] [Diseño de la Interface principal que contiene todos los módulos]()
 - [X] [Implementación del módulo Proveedores]()
-- [X] [Implementación del módulo Compras]()
-- [X] [Implementación del módulo Inventario]()
-- [X] [Implementación del módulo Clientes]()
-- [X] [Implementación del módulo Ventas]()
-- [X] [Implementación del módulo Administrador]()
+- [ ] [Implementación del módulo Compras]()
+- [ ] [Implementación del módulo Inventario]()
+- [ ] [Implementación del módulo Clientes]()
+- [ ] [Implementación del módulo Ventas]()
+- [ ] [Implementación del módulo Administrador]()
 
 - [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 - [x] list syntax required (any unordered or ordered list supported)

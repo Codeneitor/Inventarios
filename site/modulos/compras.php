@@ -1,4 +1,4 @@
-<script src="./js/compras.js"></script>
+<script src="modulos/js/compras.js"></script>
 		<div class="panel-modulo-info" id="panelCompras">
 			<h2>Módulo Compras</h2>
 			<table id="comprasLista" class="tabla-modulo" border="1">

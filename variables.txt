@@ -1,0 +1,51 @@
+VARIABLES BASE DE DATOS:
+mysql> desc proveedores;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| proveedor_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| proveedor    | varchar(50) | NO   |     | NULL    |                |
+| ciudad       | varchar(25) | NO   |     | NULL    |                |
+| direccion    | varchar(50) | NO   |     | NULL    |                |
+| telefono     | varchar(15) | NO   |     | NULL    |                |
+| nit          | varchar(25) | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+mysql> desc compras;
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| factura_compra_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| proveedor_id      | int(11)     | NO   | MUL | NULL    |                |
+| factura           | int(11)     | NO   |     | NULL    |                |
+| fecha_compra      | varchar(20) | NO   |     | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+mysql> desc clientes;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| cliente_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombres    | varchar(25) | NO   |     | NULL    |                |
+| apellidos  | varchar(25) | NO   |     | NULL    |                |
+| documento  | varchar(15) | NO   |     | NULL    |                |
+| telefono   | varchar(25) | NO   |     | NULL    |                |
+| correo     | varchar(50) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+mysql> desc ventas;
++--------------------+-------------+------+-----+---------+----------------+
+| Field              | Type        | Null | Key | Default | Extra          |
++--------------------+-------------+------+-----+---------+----------------+
+| factura_cliente_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| cliente_id         | int(11)     | NO   | MUL | NULL    |                |
+| producto_id        | int(11)     | NO   | MUL | NULL    |                |
+| cantidad           | int(6)      | NO   |     | NULL    |                |
+| numero_factura     | varchar(15) | YES  |     | NULL    |                |
++--------------------+-------------+------+-----+---------+----------------+
+mysql> desc inventario;
++---------------+---------+------+-----+---------+----------------+
+| Field         | Type    | Null | Key | Default | Extra          |
++---------------+---------+------+-----+---------+----------------+
+| inventario_id | int(11) | NO   | PRI | NULL    | auto_increment |
+| producto_id   | int(11) | NO   | MUL | NULL    |                |
+| proveedor_id  | int(11) | NO   | MUL | NULL    |                |
+| existencias   | int(11) | NO   |     | NULL    |                |
++---------------+---------+------+-----+---------+----------------+

@@ -1,4 +1,4 @@
-<script src="js/proveedores.js"></script>
+<script src="modulos/js/proveedores.js"></script>
 <div class="panel-modulo-info" id="panelProveedores">
 			<h2>Módulo Proveedores</h2>
 			<table id="proveedoresLista" class="tabla-modulo list" border="1">

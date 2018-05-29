@@ -82,9 +82,9 @@ function iniciar(){
 	function ocultarFormularios(){
 		var proveedoresCRUD = document.getElementById("proveedoresCRUD").style.display = 'none';
 		var comprasCRUD = document.getElementById("comprasCRUD").style.display = 'none';
-		//var clientesCRUD = document.getElementById("clientesCRUD").style.display = 'none';
-		//var ventasCRUD = document.getElementById("ventasCRUD").style.display = 'none';
-		//var inventariosCRUD = document.getElementById("inventariosCRUD").style.display = 'none';
+		var clientesCRUD = document.getElementById("clientesCRUD").style.display = 'none';
+		var ventasCRUD = document.getElementById("ventasCRUD").style.display = 'none';
+		var inventariosCRUD = document.getElementById("inventariosCRUD").style.display = 'none';
 	}
 	function verModulo(modulo){
 		if (modulo.style.display === "none") {

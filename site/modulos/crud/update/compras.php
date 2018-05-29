@@ -1,4 +1,4 @@
-        <div id="comprasCRUD" class="panel-modulo-crud">
+<div id="comprasCRUD" class="panel-modulo-crud">
             <table class="tabla-crud degrade">
                 <tr>
                     <td>
