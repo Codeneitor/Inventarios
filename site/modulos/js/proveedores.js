@@ -12,7 +12,7 @@ $(document).ready(function(){
             $("#proveedoresLista").append("<tr><td>"+proveedor+"</td><td>"+ciudad+"</td><td>"+ direccion +"</td><td>"+ telefono +"</td><td>"+ nit +"</td><td><a href='modulos/crud/update/proveedor.html?proveedor_id="+proveedor_id+"&proveedor="+proveedor+"&ciudad="+ciudad+"&direccion="+direccion+"&telefono="+telefono+"&nit="+nit+"'><img src='img/update.png' alt='Actualizar' /></a></td></tr>");
         });
     });
-    $("#insert").click(function(){//FUNCIÓN QUE ACTUALIZA UN PROVVEDOR
+    $("#insertProveedor").click(function(){//FUNCIÓN QUE ACTUALIZA UN PROVVEDOR
         var proveedor=$("#proveedor").val();
         var ciudad=$("#ciudad").val();
         var direccion=$("#direccion").val();
@@ -31,7 +31,11 @@ $(document).ready(function(){
                 },
                 success: function(data){
                     if(data!=""){
-                        alert("Guardado");
+                        console.log("Proveedor Guardado");
+                        /**
+                        
+                        */
+                        //alert("Guardado");
                         $("#insert").val('Guardar');
                         location.href='http://127.0.0.1/inventarios/site/index.php';
                     }else if(data=="error"){
